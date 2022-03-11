@@ -14,12 +14,12 @@ then
 	SANDBOX="-sandbox"
 fi
 
-TOKEN_FILE="token.$ENV"
+TOKEN_FILE="topups.token.$ENV"
 
 if [ ! -f $TOKEN_FILE ] 
 then
 	echo "Token not found, fetching one"
-	./get_token.sh $ENV > $TOKEN_FILE
+	./get_token.sh $ENV topups > $TOKEN_FILE
 fi
 
 echo "Using token from $TOKEN_FILE"
@@ -30,4 +30,4 @@ TOKEN=`cat $TOKEN_FILE`
 
 curl --location --request GET 'https://topups'$SANDBOX'.reloadly.com/operators/auto-detect/phone/'$RECIPIENT'/countries/'$COUNTRY_CODE'?suggestedAmountsMap=true&SuggestedAmounts=true' \
 	--header 'Authorization: Bearer '$TOKEN \
-	--header 'Accept: application/com.reloadly.topups-v1+json' | jq
+	--header 'Accept: application/com.reloadly.topups-v1+json' | jq $4

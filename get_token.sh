@@ -1,8 +1,8 @@
 #!/bin/bash
 
-if [ $# -lt 1 ]
+if [ $# -lt 2 ]
 then
-	echo "Please provide environment (prod|test)"
+	echo "Please provide environment (prod|test) and product (topups|giftcards)"
 
 	exit -1
 fi
@@ -21,8 +21,6 @@ then
         SANDBOX="-sandbox"
 fi
 
-TOKEN_FILE="token.$ENV"
-
 export $(cat $ENV_FILE | xargs)
 
 curl --location --request POST 'https://auth.reloadly.com/oauth/token' \
@@ -31,5 +29,5 @@ curl --location --request POST 'https://auth.reloadly.com/oauth/token' \
 		"client_id":"'$CLIENT_ID'",
 		"client_secret":"'$CLIENT_SECRET'",
 			"grant_type":"client_credentials",
-				"audience":"https://topups'$SANDBOX'.reloadly.com"
-			}' | jq -r ".access_token"
+				"audience":"https://'$2$SANDBOX'.reloadly.com"
+			}' | jq -r ".access_token" 
