@@ -14,12 +14,12 @@ then
 	SANDBOX="-sandbox"
 fi
 
-TOKEN_FILE="token.$ENV"
+TOKEN_FILE="topups.token.$ENV"
 
 if [ ! -f $TOKEN_FILE ] 
 then
 	>&2 echo "Token not found, fetching one"
-	./get_token.sh $ENV > $TOKEN_FILE
+	./get_token.sh $ENV topups > $TOKEN_FILE
 fi
 
 >&2 echo "Using token from $TOKEN_FILE"

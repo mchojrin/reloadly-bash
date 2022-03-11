@@ -14,7 +14,7 @@ then
 	SANDBOX="-sandbox"
 fi
 
-TOKEN_FILE="token.$ENV"
+TOKEN_FILE="topups.token.$ENV"
 
 if [ ! -f $TOKEN_FILE ] 
 then
