@@ -28,6 +28,6 @@ curl --location --request POST 'https://auth.reloadly.com/oauth/token' \
 	--data-raw '{
 		"client_id":"'$CLIENT_ID'",
 		"client_secret":"'$CLIENT_SECRET'",
-			"grant_type":"client_credentials",
-				"audience":"https://'$2$SANDBOX'.reloadly.com"
-			}' | jq -r ".access_token" 
+		"grant_type":"client_credentials",
+		"audience":"https://'$2$SANDBOX'.reloadly.com"
+	}' | jq -r ".access_token" 

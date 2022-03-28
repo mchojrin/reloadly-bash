@@ -25,7 +25,7 @@ fi
 >&2 echo "Using token from $TOKEN_FILE"
 TOKEN=`cat $TOKEN_FILE`
 
-curl -v --location --request GET 'https://giftcards'$SANDBOX'.reloadly.com/products' \
+curl --location --request GET 'https://giftcards'$SANDBOX'.reloadly.com/products' \
 	--header 'Authorization: Bearer '$TOKEN \
 	--header 'Accept: application/com.reloadly.giftcards-v1+json' \
 	--header 'Content-Type: application/json' | jq $2 
