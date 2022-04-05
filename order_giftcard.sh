@@ -33,7 +33,13 @@ DATA='{
 }'
 
 curl --location --request POST 'https://giftcards'$SANDBOX'.reloadly.com/orders' \
---header 'Authorization: Bearer '.$TOKEN \
+--header 'Authorization: Bearer '$TOKEN \
 --header 'Content-Type: application/json' \
 --header 'Accept: application/com.reloadly.giftcards-v1+json' \
---data-raw "'"$DATA"'" | jq $7 
+--data-raw '{
+   "productId": '$2',
+   "quantity": '$3',
+   "unitPrice": '$4',
+   "senderName": "'$5'",
+   "recipientEmail": "'$6'"
+}' | jq $7 
