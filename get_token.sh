@@ -2,7 +2,7 @@
 
 if [ $# -lt 2 ]
 then
-	echo "Please provide environment (prod|test) and product (topups|giftcards)"
+	echo "Please provide environment (prod|test) and product (topups|giftcards|utilities)"
 
 	exit -1
 fi
