@@ -6,6 +6,7 @@ The following services are available:
 
 * [giftcards](https://docs.reloadly.com/giftcards/)
 * [airtime](https://docs.reloadly.com/airtime/)
+* [utility payment](https://docs.reloadly.com/utility-payments/)
 
 # Installation
 
